@@ -1,0 +1,18 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-purchase-requisition-reads/SAP_API_Caller/caller.go#L175",
+	"function": "sap-api-integrations-purchase-requisition-reads/SAP_API_Caller.(*SAPAPICaller).Item",
+	"level": "INFO",
+	"message": {
+		"PurchaseRequisition": "10000000",
+		"PurchaseRequisitionItem": "10",
+		"AddressID": "23650",
+		"Country": "DE",
+		"Region": "02",
+		"StreetName": "test",
+		"CityName": "test",
+		"CorrespondenceLanguage": "JA",
+		"FaxNumber": "",
+		"PhoneNumber": ""
+	},
+	"time": "2022-09-16T16:15:22+09:00"
+}
