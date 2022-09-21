@@ -70,30 +70,31 @@ func (c *SAPAPICaller) Header(purchaseRequisition string) {
 	headerData, err := c.callPurchaseRequisitionSrvAPIRequirementHeader("A_PurchaseRequisitionHeader", purchaseRequisition)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+	    c.log.Info(headerData)
 	}
-	c.log.Info(headerData)
 
 	itemData, err := c.callToItem(headerData[0].ToItem)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+	    c.log.Info(itemData)
 	}
-	c.log.Info(itemData)
 
 	itemDeliveryAddressData, err := c.callToItemDeliveryAddress(itemData[0].ToItemDeliveryAddress)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+	    c.log.Info(itemDeliveryAddressData)
 	}
-	c.log.Info(itemDeliveryAddressData)
 
 	itemAccountData, err := c.callToItemAccount(itemData[0].ToItemAccount)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+	    c.log.Info(itemAccountData)
 	}
-	c.log.Info(itemAccountData)
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseRequisitionSrvAPIRequirementHeader(api, purchaseRequisition string) ([]sap_api_output_formatter.Header, error) {
@@ -163,23 +164,24 @@ func (c *SAPAPICaller) Item(purchaseRequisition, purchaseRequisitionItem string)
 	itemData, err := c.callPurchaseRequisitionSrvAPIRequirementItem("A_PurchaseRequisitionItem", purchaseRequisition, purchaseRequisitionItem)
 	if err != nil {
 		c.log.Error(err)
-		return
-	}
-	c.log.Info(itemData)
-
+	} else {
+	    c.log.Info(itemData)
+    }
+	
 	itemDeliveryAddressData, err := c.callToItemDeliveryAddress(itemData[0].ToItemDeliveryAddress)
 	if err != nil {
 		c.log.Error(err)
-		return
-	}
-	c.log.Info(itemDeliveryAddressData)
-
+	} else {
+	    c.log.Info(itemDeliveryAddressData)
+    }
+	
 	itemAccountData, err := c.callToItemAccount(itemData[0].ToItemAccount)
 	if err != nil {
 		c.log.Error(err)
-		return
-	}
-	c.log.Info(itemAccountData)
+    } else {
+	    c.log.Info(itemAccountData)
+    }
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseRequisitionSrvAPIRequirementItem(api, purchaseRequisition, purchaseRequisitionItem string) ([]sap_api_output_formatter.Item, error) {
@@ -205,9 +207,10 @@ func (c *SAPAPICaller) ItemDeliveryAddress(purchaseRequisition, purchaseRequisit
 	data, err := c.callPurchaseRequisitionSrvAPIRequirementItemDeliveryAddress("A_PurReqAddDelivery", purchaseRequisition, purchaseRequisitionItem)
 	if err != nil {
 		c.log.Error(err)
-		return
-	}
-	c.log.Info(data)
+	} else {
+	    c.log.Info(data)
+    }
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseRequisitionSrvAPIRequirementItemDeliveryAddress(api, purchaseRequisition, purchaseRequisitionItem string) ([]sap_api_output_formatter.ItemDeliveryAddress, error) {
@@ -233,9 +236,10 @@ func (c *SAPAPICaller) ItemAccount(purchaseRequisition, purchaseRequisitionItem 
 	data, err := c.callPurchaseRequisitionSrvAPIRequirementItemAccount("A_PurReqnAcctAssgmt", purchaseRequisition, purchaseRequisitionItem)
 	if err != nil {
 		c.log.Error(err)
-		return
-	}
-	c.log.Info(data)
+	} else {
+	    c.log.Info(data)
+    }
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseRequisitionSrvAPIRequirementItemAccount(api, purchaseRequisition, purchaseRequisitionItem string) ([]sap_api_output_formatter.ItemAccount, error) {
@@ -261,9 +265,10 @@ func (c *SAPAPICaller) PurchasingDocument(purchasingDocument, purchasingDocument
 	data, err := c.callPurchaseRequisitionSrvAPIRequirementPurchasingDocument("A_PurchaseRequisitionItem", purchasingDocument, purchasingDocumentItem)
 	if err != nil {
 		c.log.Error(err)
-		return
-	}
-	c.log.Info(data)
+	} else {
+	    c.log.Info(data)
+    }
+	return
 }
 
 func (c *SAPAPICaller) callPurchaseRequisitionSrvAPIRequirementPurchasingDocument(api, purchasingDocument, purchasingDocumentItem string) ([]sap_api_output_formatter.Item, error) {
